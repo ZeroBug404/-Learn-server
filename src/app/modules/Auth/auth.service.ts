@@ -25,9 +25,7 @@ const loginUser = async (payload: IUserLogin) => {
     throw new ApiError(httpStatus.UNAUTHORIZED, 'Password is incorrect')
   }
 
-  const { phoneNumber, role, email } = isUserExists
-
-  console.log(email)
+  const { role, email } = isUserExists
 
   // create access token
   const accessToken = jwt.sign(
@@ -38,13 +36,13 @@ const loginUser = async (payload: IUserLogin) => {
     configs.jwt.secret as Secret,
     {
       expiresIn: configs.jwt.secret_expire_in,
-    },
+    }
   )
 
   const refreshToken = jwtHelpers.createToken(
-    { phoneNumber, role },
+    { email, role },
     configs.jwt.refresh_secret as Secret,
-    configs.jwt.refresh_secret_expire_in as string,
+    configs.jwt.refresh_secret_expire_in as string
   )
 
   return {
@@ -56,13 +54,13 @@ const loginUser = async (payload: IUserLogin) => {
 }
 
 const refreshTokenService = async (
-  token: string,
+  token: string
 ): Promise<IRefreshTokenResponse> => {
   let verifiedToken = null
   try {
     verifiedToken = jwtHelpers.verifyToken(
       token,
-      configs.jwt.refresh_secret as Secret,
+      configs.jwt.refresh_secret as Secret
     )
   } catch (error) {
     throw new ApiError(httpStatus.FORBIDDEN, 'Invalid Refresh Token')
@@ -83,7 +81,7 @@ const refreshTokenService = async (
       role: isUserExists.role,
     },
     configs.jwt.secret as Secret,
-    configs.jwt.secret_expire_in as string,
+    configs.jwt.secret_expire_in as string
   )
   return {
     accessToken: newAccessToken,
