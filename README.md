@@ -2,6 +2,10 @@
 
 This is the backend repository for the **Japanese Vocabulary Learning Application**, responsible for handling authentication, lesson management, vocabulary APIs, and user role management.
 
+[Backend Live API Link](https://learn-server-kappa.vercel.app/)
+
+[Frontend Repo Link](https://github.com/ZeroBug404/Japanese-language-Learn-UI)
+
 ## Features
 
 - JWT-based authentication with secure role-based access control.

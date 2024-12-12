@@ -8,8 +8,15 @@ import routes from './app/routes'
 import globalErrorHandler from './errors/globalErrorHandler'
 import { dbConnect } from './utils/dbConnect'
 const app: Application = express()
+const corsOptions = {
+  origin: ['https://japanese-language-learning.netlify.app'],
+  optionsSuccessStatus: 200,
+}
 
-app.use(cors())
+app.use(cors(corsOptions))
+
+// https://learn-server-kappa.vercel.app/api/v1/auth/login
+// https://japanese-language-learning.netlify.app
 
 // Set EJS as the view engine
 app.set('view engine', 'ejs')
