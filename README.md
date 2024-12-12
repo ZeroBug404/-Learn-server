@@ -1,21 +1,25 @@
-## TO install packages run the following command if you want to start from zero
+# Japanese Vocabulary Learning Application - Backend
 
-```
-yarn add express @types/express ts-node-dev typescript cors @types/cors mongoose eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin prettier eslint-config-prettier dotenv husky lint-staged
+This is the backend repository for the **Japanese Vocabulary Learning Application**, responsible for handling authentication, lesson management, vocabulary APIs, and user role management.
 
-```
+## Features
 
-## To run the project , install the following command
+- JWT-based authentication with secure role-based access control.
+- CRUD operations for lessons and vocabularies.
+- Vocabulary filtering by lesson number.
+- Admin-specific functionalities for managing users, lessons, and vocabularies.
+- Secure RESTful APIs with robust error handling and input validation.
 
-```
-yarn // to install dependencies
-yarn dev // to run the projects
-```
+## Tech Stack
 
-## To develop the project , run the following command
+- **Framework**: Node.js with Express.js
+- **Database**: MongoDB (NoSQL)
+- **ORM**: Mongoose
+- **Authentication**: JSON Web Tokens (JWT)
+- **Utilities**: dotenv for environment variables, bcrypt for password hashing.
 
-```
-yarn install
-yarn husky install
-yarn dev
-```
+## Installation and Setup
+
+### Prerequisites
+- Node.js (v16 or higher)
+- MongoDB (local or cloud-based, e.g., MongoDB Atlas)
